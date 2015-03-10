@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/main :: head">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>PetClinic :: a Spring Framework demonstration</title>
+
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/3.3.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.1/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../../resources/css/petclinic.css"
+          th:href="@{/resources/css/petclinic.css}" rel="stylesheet"/>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+            th:src="@{/webjars/jquery/1.9.0/jquery.js}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"
+            th:src="@{/webjars/jquery-ui/1.9.2/js/jquery-ui-1.9.2.custom.js}"></script>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/smoothness/jquery-ui.css"
+          th:href="@{/webjars/jquery-ui/1.9.2/css/smoothness/jquery-ui-1.9.2.custom.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="container">
+
+    <div th:replace="fragments/main :: nav">
+
+    </div>
+
+    <h2>Veterinarians</h2>
+
+    <table class="table table-stripped" style="width:600px;">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Specialties</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vet : ${vets.vetList}">
+            <td th:text="|${vet.firstName} ${vet.lastName}|">[firstName lastName]</td>
+            <td>
+                    <span th:remove="tag" th:each="specialty : ${vet.specialties}" th:text="${specialty.name}">
+                       [specialty name]
+                    </span>
+                <span th:remove="tag" th:if="${vet.nrOfSpecialties == 0}">none</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table-buttons">
+        <tr>
+            <td>
+                <a th:href="@{'/vets.xml'}" href="#" htmlEscape="true">View as XML</a>
+            </td>
+            <td>
+                <a th:href="@{'/vets.atom'}" href="#" htmlEscape="true">Subscribe to Atom feed</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>PetClinic :: a Spring Framework demonstration</title>
+
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.1/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../../../resources/css/petclinic.css"
+          th:href="@{/resources/css/petclinic.css}" rel="stylesheet"/>
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"
+            th:src="@{/webjars/jquery/1.11.1/jquery.js}"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/3.3.1/js/bootstrap.min.js}"></script>
+
+    <script src="http://cdn.bootcss.com/jqueryui/1.11.2/jquery-ui.min.js"
+            th:src="@{/webjars/jquery-ui/1.11.2/jquery-ui.min.js}"></script>
+
+    <link href="http://cdn.bootcss.com/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"
+          th:href="@{/webjars/jquery-ui/1.11.2/jquery-ui.min.css}" rel="stylesheet"/>
+
+</head>
+
+<body>
+<div class="container" >
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default" role="navigation" th:fragment="nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html" th:href="@{/}">PetClinic</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../owners/findOwners.html" th:href="@{/owners/find.html}">Find owners</a></li>
+                    <li><a href="../exception.html" th:href="@{/oups.html}" title="Error">Error</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../login.html" th:href="@{/logout}">Logout</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+</div>
+</body>
+
+</html>
+
+
+
+
