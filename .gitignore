@@ -2,11 +2,14 @@
 .#*
 *#
 *~
+
 *.classpath
 *.project
 *.settings
 *bin
 *build
+
+
 *target
 *dependency-reduced-pom.xml
 *.sublime-*
@@ -16,3 +19,6 @@
 *README.html
 *.idea
 *.iml
+
+
+*src/main/webapp/libs
