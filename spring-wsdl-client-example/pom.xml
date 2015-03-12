@@ -2,14 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.javachen</groupId>
-	<artifactId>spring-security-helloworld-xml</artifactId>
+	<artifactId>spring-wsdl-client-example</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-security-helloworld-xml Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<version>1.0.0</version>
+	<name>spring-wsdl-client-example</name>
 
 	<build>
-		<finalName>spring-security-helloworld-xml</finalName>
+		<finalName>spring-wsdl-client-example</finalName>
 
 		<plugins>
 			<plugin>
@@ -20,6 +19,32 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>2.7.3</version>
+				<executions>
+					<execution>
+						<id>process-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>http://www.webservicex.net/globalweather.asmx?WSDL</wsdl>
+									<extraargs>
+										<extraarg>-p</extraarg>
+										<extraarg>com.javachen.soap</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -28,7 +53,6 @@
 
 		<!-- Versions -->
 		<spring.version>3.2.11.RELEASE</spring.version>
-		<spring.security.version>3.2.5.RELEASE</spring.security.version>
 		<jstl.version>1.2</jstl.version>
 	</properties>
 
@@ -64,28 +88,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
-
-		<!-- Spring Security -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
-			<version>${spring.security.version}</version>
 		</dependency>
 
 		<!-- Web -->

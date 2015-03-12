@@ -1,51 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.mkyong</groupId>
-	<artifactId>spring-security-loginform-xml</artifactId>
+	<groupId>com.javachen</groupId>
+	<artifactId>spring-security-custom-login-form-xml</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
-	<name>SpringSecurity Custom Login Form XML</name>
-	<url>http://www.mkyong.com/tutorials/spring-security-tutorials/</url>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring-security-custom-login-form-xml Maven Webapp</name>
+	<url>http://maven.apache.org</url>
 
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-	<developers>
-		<developer>
-			<id>mkyong</id>
-			<name>Yong Mook Kim</name>
-			<email>mkyong2002@gmail.com</email>
-		</developer>
-	</developers>
+	<build>
+		<finalName>spring-security-custom-login-form-xml</finalName>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<properties>
-		<jdk.version>1.6</jdk.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Versions -->
 		<spring.version>3.2.11.RELEASE</spring.version>
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
 		<jstl.version>1.2</jstl.version>
 	</properties>
 
 	<dependencies>
-
-		<!-- Spring 3 dependencies -->
+		<!-- Spring framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -55,51 +69,32 @@
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
-
-		<!-- jstl for jsp page -->
 		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${jstl.version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
 		</dependency>
 
+		<!-- Web -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
-
-	<build>
-		<finalName>SpringSecurityHelloWorld</finalName>
-		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>false</downloadJavadocs>
-					<wtpversion>2.0</wtpversion>
-				</configuration>
-			</plugin>
-
-		</plugins>
-	</build>
-
 </project>

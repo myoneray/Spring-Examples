@@ -20,6 +20,13 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:spring-database.xml,
+			classpath:spring-database.xml
+		</param-value>
+	</context-param>
 
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
