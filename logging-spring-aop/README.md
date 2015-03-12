@@ -19,7 +19,7 @@ mvn clean install
 mvn tomcat:run
 ```
 
-Open browser with <http://localhost:8080/logging-spring-aop-example/steve.html> and <http://localhost:8080/logging-spring-aop-example/bill.html> and wath the term output :
+Open browser with <http://localhost:8080/logging-spring-aop/steve.html> and <http://localhost:8080/logging-spring-aop/bill.html> and wath the term output :
 
 ```
 [10-03-2015 17:52:40]INFO : com.javachen.service.UserService - getSteveJobs() executed in 20ms
