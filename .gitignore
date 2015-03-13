@@ -15,7 +15,7 @@
 *.sublime-*
 /scratch
 
-*.gradle
+*/.gradle
 *README.html
 *.idea
 *.iml
